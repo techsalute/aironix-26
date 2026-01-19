@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { supabase } from "./supabaseClient";
-import logoImage from "./assets/aironix (1).png";
+import logoImage from "./assets/logo.jpeg";
+import qrCodeImage from "./assets/qr code.jpeg"
 
 function App() {
-  const eventDate = new Date("2026-02-11T00:00:00").getTime();
+  const eventDate = new Date("2026-02-07T00:00:00").getTime();
   const [time, setTime] = useState({});
   const [view, setView] = useState("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -76,7 +77,7 @@ function App() {
   const staticRules = [
     { id: 1, title: "General Rulu", description: "All Participation from Various College must wear their ID card." },
     { id: 2, title: "Code of Conduct", description: "All participants must maintain professional decorum and respect fellow participants, judges, and organizers." },
-    { id: 3, title: "Online Registration Deadline", description: "All Online Registration submissions must be completed by . Late submissions will not be accepted." },
+    { id: 3, title: "Online Registration Deadline", description: "All Online Registration submissions must be completed by Feb 6. Late submissions will not be accepted." },
     { id: 4, title: "Offline Registration", description: "Offline Registration is also Avaible in the Venue Auditorium and its open till 10:30." },
     { id: 5, title: "Be on Time", description: "After the Completion of the Inaguration Cermony please be move to the respected Events Venue inside the campus." },
     { id: 6, title: "Resources", description: "For Events Lab are alloted but for some events you need to take your personal laptop." },
@@ -95,20 +96,20 @@ function App() {
 
   // Static data for sponsors
   const staticSponsors = [
-    { id: 1, name: "TechGiant Inc.", logo: "🏢", level: "Platinum", url: "#" },
-    { id: 2, name: "AI Research Lab", logo: "🔬", level: "Gold", url: "#" },
-    { id: 3, name: "Cloud Solutions", logo: "☁️", level: "Silver", url: "#" },
-    { id: 4, name: "Data Corp", logo: "📊", level: "Bronze", url: "#" },
-    { id: 5, name: "Dev Tools Co.", logo: "🛠️", level: "Bronze", url: "#" },
+    { id: 1, name: "I Constructions.", logo: "🏢", level: "Elite", url: "#" },
+    { id: 2, name: "Nadeem Beef Center", logo: "🔬", level: "Premium", url: "#" },
+    { id: 3, name: "Cloud Solutions", logo: "☁️", level: "Standard", url: "#" },
+    { id: 4, name: "Data Corp", logo: "📊", level: "Standard", url: "#" },
+    { id: 5, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", url: "#" },
   ];
 
   // Static data for coordinators
   const staticCoordinators = [
-    { id: 1, name: "Mr. T S Karthick", role: "HOD/AI&DS", email: "aironix26@gmail.com", phone: "+1 (555) 123-4567", image: "👩‍🔬" },
-    { id: 2, name: "MRs. Saranya R", role: "Symposium Coordinator", email: "aironix26@gmail.com", phone: "+1 (555) 234-5678", image: "👨‍🏫" },
-    { id: 3, name: "Mohamed Melhan K O", role: "Student Head", email: "melhan922@gmail.com", phone: "9600159063", image: "👨‍🎓" },
-    { id: 4, name: "Md. Talha C", role: "Tech-Head", email: "cmdtalha23@gmail.com", phone: "+1 (555) 456-7890", image: "👩‍💼" },
-    { id: 5, name: "Abrar A", role: "Non-Tech Head", email: "abrar65@gmail.com", phone: "+1 (555) 567-8901", image: "👨‍💼" },
+    { id: 1, name: "Mr. T S Karthick", role: "HOD/AI&DS", email: "aironix26@gmail.com", phone: "9894746047" },
+    { id: 2, name: "MRs. Saranya R", role: "Symposium Coordinator", email: "aironix26@gmail.com", phone: "8220387634" },
+    { id: 3, name: "Mohamed Melhan K O", role: "General Secretory", email: "melhan922@gmail.com", phone: "9600159063" },
+    { id: 4, name: "Abrar A", role: "Joint Secretory", email: "abrarrx65@gmail.com", phone: "6374154994" },
+    { id: 5, name: "Md. Talha C", role: "Treasure", email: "cmdtalha23@gmail.com", phone: "6374892929" },
   ];
 
   // Static data for gallery
@@ -839,7 +840,7 @@ function App() {
                   <span className="hero-sub">SYMPOSIUM 2026</span>
                 </h1>
                 <div className="hero-badge">
-                  <span className="badge-text">FEB 11,Wed, 2026 | CAHCET</span>
+                  <span className="badge-text">FEB 7, Sat, 2026 | CAHCET</span>
                   <div className="badge-glow"></div>
                 </div>
               </div>
@@ -914,7 +915,7 @@ function App() {
               <div className="announcement-list">
                 <div className="announcement-item">
                   <span className="announcement-badge">NEW</span>
-                  <p>Early bird registration ends Feb 9, 2026</p>
+                  <p>Early bird registration ends Feb 6, 2026</p>
                 </div>
                 <div className="announcement-item">
                   <span className="announcement-badge">UPDATE</span>
@@ -923,6 +924,10 @@ function App() {
                 <div className="announcement-item">
                   <span className="announcement-badge">IMPORTANT</span>
                   <p>Team registration Vary Dynamics For Every Events</p>
+                </div>
+                <div className="announcement-item">
+                  <span className="announcement-badge">Contact</span>
+                  <p>If You have doubts, contact or whatsapp the coordinators</p>
                 </div>
               </div>
             </div>
@@ -1057,7 +1062,7 @@ function App() {
         <section className="page-section schedule-section">
           <div className="section-header">
             <h2 className="section-title">Event Schedule</h2>
-            <p className="section-subtitle">February 11, 2026 | CAHCET</p>
+            <p className="section-subtitle">February 7, 2026 | CAHCET</p>
           </div>
 
           <div className="timeline">
@@ -1421,33 +1426,21 @@ function App() {
 
                 <div className="qr-payment-section">
                   <div className="qr-container">
-                    <h4>Scan QR Code to Pay</h4>
+                    <h4>💳 Scan QR Code to Pay</h4>
                     <div className="qr-code">
-                      <div className="qr-placeholder">
-                        <div className="qr-grid">
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                          <div className="qr-cell"></div>
-                        </div>
-                      </div>
+                      <img src={qrCodeImage} alt="Payment QR Code" className="qr-image" />
                     </div>
                     <div className="payment-details">
                       <div className="payment-info">
-                        <span>Amount:</span>
+                        <span>Total Amount:</span>
                         <span className="amount">₹{calculateTotal()}</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="payment-upload-section">
-                    <h4>Upload Payment Screenshot</h4>
-                    <p>After payment, upload the screenshot for verification</p>
+                    <h4>📸 Upload Payment Proof</h4>
+                    <p>Complete verification by uploading your payment screenshot</p>
 
                     <div className="upload-area">
                       <input
@@ -1479,12 +1472,13 @@ function App() {
                     </div>
 
                     <div className="payment-instructions">
-                      <h5>Important Instructions:</h5>
+                      <h5>Payment Instructions</h5>
                       <ul>
-                        <li>Make payment using the QR code above</li>
-                        <li>Upload clear screenshot of payment confirmation</li>
-                        <li>Payment verification may take 1 hours</li>
-                        <li>You will receive confirmation email after verification</li>
+                        <li>Scan and complete payment using the QR code</li>
+                        <li>Ensure your payment screenshot is clear and visible</li>
+                        <li>Add your name and event name in payment notes (if applicable)</li>
+                        <li>Verification typically takes 1 hour</li>
+                        <li>Confirmation email will be sent after verification</li>
                       </ul>
                     </div>
                   </div>
@@ -1515,7 +1509,7 @@ function App() {
                     <span className="info-icon">📅</span>
                     <div>
                       <strong>Early Bird Registration</strong>
-                      <p>Until Feb 11, 2026</p>
+                      <p>Until Feb 6, 2026</p>
                     </div>
                   </li>
                   <li>
@@ -1579,10 +1573,6 @@ function App() {
           <div className="coordinators-grid">
             {staticCoordinators.map((coordinator) => (
               <div key={coordinator.id} className="coordinator-card">
-                <div className="coordinator-image">
-                  <span className="coordinator-avatar">{coordinator.image}</span>
-                  <div className="coordinator-glow"></div>
-                </div>
                 <div className="coordinator-info">
                   <h3>{coordinator.name}</h3>
                   <p className="coordinator-role">{coordinator.role}</p>
@@ -1606,10 +1596,10 @@ function App() {
           </div>
 
           <div className="sponsors-container">
-            <div className="sponsor-level platinum">
-              <h3>Platinum Sponsors</h3>
+            <div className="sponsor-level elite">
+              <h3>Elite Sponsors</h3>
               <div className="sponsor-logos">
-                {staticSponsors.filter(s => s.level === "Platinum").map(sponsor => (
+                {staticSponsors.filter(s => s.level === "Elite").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
                     <span className="logo-icon">{sponsor.logo}</span>
                     <h4>{sponsor.name}</h4>
@@ -1618,10 +1608,10 @@ function App() {
               </div>
             </div>
 
-            <div className="sponsor-level gold">
-              <h3>Gold Sponsors</h3>
+            <div className="sponsor-level premium">
+              <h3>Premium Sponsors</h3>
               <div className="sponsor-logos">
-                {staticSponsors.filter(s => s.level === "Gold").map(sponsor => (
+                {staticSponsors.filter(s => s.level === "Premium").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
                     <span className="logo-icon">{sponsor.logo}</span>
                     <h4>{sponsor.name}</h4>
@@ -1630,22 +1620,10 @@ function App() {
               </div>
             </div>
 
-            <div className="sponsor-level silver">
-              <h3>Silver Sponsors</h3>
+            <div className="sponsor-level standard">
+              <h3>Standard Sponsors</h3>
               <div className="sponsor-logos">
-                {staticSponsors.filter(s => s.level === "Silver").map(sponsor => (
-                  <div key={sponsor.id} className="sponsor-logo">
-                    <span className="logo-icon">{sponsor.logo}</span>
-                    <h4>{sponsor.name}</h4>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="sponsor-level bronze">
-              <h3>Bronze Sponsors</h3>
-              <div className="sponsor-logos">
-                {staticSponsors.filter(s => s.level === "Bronze").map(sponsor => (
+                {staticSponsors.filter(s => s.level === "Standard").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
                     <span className="logo-icon">{sponsor.logo}</span>
                     <h4>{sponsor.name}</h4>
@@ -1846,14 +1824,14 @@ function App() {
                 <div className="stat-card">
                   <div className="stat-card-icon">✅</div>
                   <div className="stat-card-content">
-                    <h3>{registrations.filter(r => r.verification_status === 'approved').length}</h3>
+                    <h3>{registrations.filter(r => r.status === 'approved').length}</h3>
                     <p>Verified Payments</p>
                   </div>
                 </div>
                 <div className="stat-card">
                   <div className="stat-card-icon">⏳</div>
                   <div className="stat-card-content">
-                    <h3>{registrations.filter(r => r.verification_status === 'pending').length}</h3>
+                    <h3>{registrations.filter(r => r.status === 'pending').length}</h3>
                     <p>Pending Verification</p>
                   </div>
                 </div>
@@ -1888,8 +1866,8 @@ function App() {
                         <small>Registered for {reg.event} - ₹{reg.total_amount}</small>
                       </div>
                       <div className="activity-time">
-                        <span className={`status-badge ${reg.verification_status}`}>
-                          {reg.verification_status}
+                        <span className={`status-badge ${reg.status}`}>
+                          {reg.status}
                         </span>
                       </div>
                     </div>
@@ -1936,11 +1914,11 @@ function App() {
                         <td>#{reg.id}</td>
                         <td>{reg.name}</td>
                         <td>{reg.email}</td>
-                        <td>{reg.event}</td>
+                        <td>{reg.event_title}</td>
                         <td>₹{reg.total_amount}</td>
-                        <td>{reg.participation_type}</td>
+                        <td>{reg.registration_type}</td>
                         <td>
-                          {reg.participation_type === 'team' ? (
+                          {reg.registration_type === 'team' ? (
                             <span className="team-badge" title={`Team: ${reg.team_name || 'N/A'} (${reg.team_size} members)`}>
                               👥 Team ({reg.team_size})
                             </span>
@@ -1948,15 +1926,15 @@ function App() {
                             <span className="solo-badge">👤 Solo</span>
                           )}
                         </td>
-                        <td>{new Date(reg.registration_date).toLocaleDateString()}</td>
+                        <td>{new Date(reg.created_at).toLocaleDateString()}</td>
                         <td>
-                          <span className={`status-badge ${reg.verification_status}`}>
-                            {reg.verification_status}
+                          <span className={`status-badge ${reg.status}`}>
+                            {reg.status}
                           </span>
                         </td>
                         <td>
                           <div className="action-buttons-small">
-                            {reg.verification_status === 'pending' && (
+                            {reg.status === 'pending' && (
                               <>
                                 <button
                                   className="approve-btn"
@@ -1975,7 +1953,7 @@ function App() {
                             <button
                               className="view-btn"
                               onClick={() => {
-                                if (reg.participation_type === 'team' || (reg.team_members_list && reg.team_members_list !== '[]' && reg.team_members_list !== null)) {
+                                if (reg.registration_type === 'team' || (reg.team_members && reg.team_members !== '[]' && reg.team_members !== null)) {
                                   setSelectedTeamRegistration(reg);
                                 } else {
                                   let detailsMessage = `Name: ${reg.name}\nEmail: ${reg.email}\nPhone: ${reg.phone}\nCollege: ${reg.college}\nDepartment: ${reg.department}\nYear: ${reg.year}`;
@@ -2262,7 +2240,7 @@ function App() {
                   </div>
                   <div className="info-item">
                     <label>Event:</label>
-                    <span>{selectedTeamRegistration.event}</span>
+                    <span>{selectedTeamRegistration.event_title}</span>
                   </div>
                   <div className="info-item">
                     <label>Total Amount:</label>
@@ -2272,13 +2250,13 @@ function App() {
               </div>
 
               {/* Team Members List */}
-              {selectedTeamRegistration.team_members_list && (
+              {selectedTeamRegistration.team_members && (
                 <div className="team-section">
                   <h3 className="team-section-title">👥 Team Members</h3>
                   <div className="members-list">
                     {(() => {
                       try {
-                        let teamMembers = selectedTeamRegistration.team_members_list;
+                        let teamMembers = selectedTeamRegistration.team_members;
 
                         // Handle if it's already an object
                         if (typeof teamMembers === 'object' && !Array.isArray(teamMembers)) {
@@ -2333,13 +2311,13 @@ function App() {
                 <div className="status-box">
                   <div className="status-item">
                     <label>Verification Status:</label>
-                    <span className={`status-badge ${selectedTeamRegistration.verification_status}`}>
-                      {selectedTeamRegistration.verification_status.toUpperCase()}
+                    <span className={`status-badge ${selectedTeamRegistration.status}`}>
+                      {selectedTeamRegistration.status.toUpperCase()}
                     </span>
                   </div>
                   <div className="status-item">
                     <label>Registration Date:</label>
-                    <span>{new Date(selectedTeamRegistration.registration_date).toLocaleDateString()}</span>
+                    <span>{new Date(selectedTeamRegistration.created_at).toLocaleDateString()}</span>
                   </div>
                 </div>
               </div>

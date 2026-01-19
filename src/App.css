@@ -224,8 +224,8 @@ body {
 
 .logo-icon {
   position: relative;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   background: rgba(77, 163, 255, 0.1);
   border-radius: 12px;
   display: flex;
@@ -270,7 +270,7 @@ body {
 }
 
 .logo {
-  font-size: 1.9rem;
+  font-size: 2.2rem;
   font-weight: 900;
   display: flex;
   align-items: center;
@@ -294,8 +294,8 @@ body {
 }
 
 .navbar-logo {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid rgba(77, 163, 255, 0.4);
@@ -1833,13 +1833,31 @@ body {
 .form-group textarea {
   width: 100%;
   padding: 1.2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: rgba(10, 15, 26, 0.8);
   border: 2px solid var(--border);
   border-radius: 12px;
   color: var(--text-primary);
   font-size: 1rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: inherit;
+}
+
+/* Dropdown options styling */
+.form-group select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  padding: 0.8rem;
+}
+
+.form-group select option:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.form-group select option:checked {
+  background: linear-gradient(#4DA3FF, #4DA3FF);
+  background-color: var(--primary);
+  color: #fff;
 }
 
 .form-group input::placeholder,
@@ -1919,70 +1937,136 @@ body {
 
 /* Payment Container */
 .payment-container {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
-  border: 2px solid var(--border);
-  border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(20px);
-  margin: 2rem 0;
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.08) 0%, rgba(212, 175, 55, 0.06) 100%);
+  border: 2px solid rgba(77, 163, 255, 0.3);
+  border-radius: 25px;
+  padding: 3rem;
+  backdrop-filter: blur(25px);
+  margin: 3rem 0;
+  box-shadow: 0 20px 60px rgba(77, 163, 255, 0.15), 0 0 40px rgba(212, 175, 55, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(77, 163, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .payment-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .payment-header h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
 }
 
 .payment-header p {
   color: var(--text-secondary);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
 }
 
 .qr-payment-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .qr-container {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(77, 163, 255, 0.03) 100%);
-  border: 2px solid var(--border);
-  border-radius: 15px;
-  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(77, 163, 255, 0.06) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
   text-align: center;
-  backdrop-filter: blur(15px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.qr-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(77, 163, 255, 0.08) 0%, transparent 70%);
+  animation: glow-rotate 8s linear infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes glow-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .qr-container:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary), 0 8px 24px rgba(77, 163, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 60px rgba(77, 163, 255, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .qr-container h4 {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
   color: var(--text-primary);
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
 }
 
 .qr-code {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto 1.5rem;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 2.5rem;
   background: white;
-  padding: 1rem;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(77, 163, 255, 0.1);
+  transition: all 0.4s ease;
+  border: none;
+}
+
+.qr-code:hover {
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 50px rgba(77, 163, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.qr-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .qr-placeholder {
@@ -2012,54 +2096,98 @@ body {
 .payment-details {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .payment-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.1) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border: 1px solid rgba(77, 163, 255, 0.3);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
 }
 
 .payment-info:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.15) 0%, rgba(212, 175, 55, 0.12) 100%);
+  border-color: rgba(77, 163, 255, 0.5);
+  transform: translateX(5px);
+  box-shadow: 0 8px 24px rgba(77, 163, 255, 0.2);
 }
 
 .upi-id, .amount {
   font-weight: 700;
   color: var(--secondary);
   font-family: 'Orbitron', monospace;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 .payment-upload-section {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(77, 163, 255, 0.02) 100%);
-  border: 2px solid var(--border);
-  border-radius: 15px;
-  padding: 2rem;
-  backdrop-filter: blur(15px);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.08) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 2px solid rgba(77, 163, 255, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(77, 163, 255, 0.1);
+}
+
+.payment-upload-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  animation: glow-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.payment-upload-section:hover {
+  border-color: rgba(77, 163, 255, 0.5);
+  box-shadow: 0 0 50px rgba(77, 163, 255, 0.2);
 }
 
 .payment-upload-section h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
   color: var(--text-primary);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
 }
 
 .payment-upload-section p {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .upload-area {
   margin: 2rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 .file-input {
@@ -2071,12 +2199,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
-  background: linear-gradient(135deg, rgba(77, 163, 255, 0.05) 0%, rgba(77, 163, 255, 0.02) 100%);
-  border: 2px dashed var(--border);
-  border-radius: 12px;
+  padding: 3.5rem;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.1) 0%, rgba(77, 163, 255, 0.03) 100%);
+  border: 3px dashed rgba(77, 163, 255, 0.4);
+  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2089,15 +2217,16 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(77, 163, 255, 0.1), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, transparent, rgba(77, 163, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
 }
 
 .upload-label:hover {
   border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(77, 163, 255, 0.12) 0%, rgba(77, 163, 255, 0.05) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(77, 163, 255, 0.15);
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.15) 0%, rgba(77, 163, 255, 0.08) 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(77, 163, 255, 0.25);
 }
 
 .upload-label:hover::before {
@@ -2105,71 +2234,124 @@ body {
 }
 
 .upload-icon {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  color: var(--primary);
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.upload-text {
+  position: relative;
+  z-index: 1;
 }
 
 .upload-text p {
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
 }
 
 .upload-text small {
   color: var(--text-tertiary);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  display: block;
 }
 
 .upload-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .upload-success {
   color: var(--success);
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  animation: scale-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scale-bounce {
+  0% { transform: scale(0.5); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 .payment-instructions {
-  background: rgba(77, 163, 255, 0.05);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.1) 0%, rgba(77, 163, 255, 0.05) 100%);
+  border-radius: 16px;
+  padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(77, 163, 255, 0.1);
+  border: 2px solid rgba(77, 163, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
 }
 
 .payment-instructions h5 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.payment-instructions h5::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: 900;
+  font-size: 1.4rem;
 }
 
 .payment-instructions ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .payment-instructions li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
+  margin-bottom: 0;
+  padding-left: 2rem;
   position: relative;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.payment-instructions li:hover {
+  color: var(--text-primary);
+  transform: translateX(5px);
 }
 
 .payment-instructions li:before {
   content: "→";
   position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: bold;
+  left: 0.5rem;
+  color: var(--secondary);
+  font-weight: 900;
+  font-size: 1.1rem;
+  animation: slide-right 0.6s ease-in-out infinite;
+}
+
+@keyframes slide-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
 }
 
 .submit-button {
@@ -2422,15 +2604,14 @@ body {
 
 .coordinator-avatar {
   font-size: 4rem;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  width: 80px;
-  height: 80px;
+  display: block;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  border: 3px solid var(--primary);
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .coordinator-glow {
@@ -3293,13 +3474,30 @@ body {
 .admin-form-section .form-group textarea {
   width: 100%;
   padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(10, 15, 26, 0.8);
   border: 1.5px solid rgba(71, 85, 105, 0.3);
   border-radius: 8px;
   color: var(--text-primary);
   font-size: 0.95rem;
   transition: all 0.3s ease;
   font-family: inherit;
+}
+
+.admin-form-section .form-group select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  padding: 0.8rem;
+}
+
+.admin-form-section .form-group select option:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.admin-form-section .form-group select option:checked {
+  background: linear-gradient(#4DA3FF, #4DA3FF);
+  background-color: var(--primary);
+  color: #fff;
 }
 
 .admin-form-section .form-group input::placeholder,
@@ -4510,6 +4708,41 @@ body {
   .sidebar-header {
     margin-bottom: 2rem;
   }
+
+  /* Register Form Responsive */
+  .register-form {
+    padding: 1.5rem;
+  }
+
+  .register-container {
+    gap: 2rem;
+    max-width: 100%;
+  }
+
+  /* QR Code Mobile at 768px */
+  .qr-payment-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .qr-container {
+    padding: 1.5rem;
+  }
+
+  .qr-code {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 1.5rem;
+    padding: 1.2rem;
+  }
+
+  .payment-upload-section {
+    padding: 1.5rem;
+  }
+
+  .payment-container {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -4615,6 +4848,225 @@ body {
     width: 100%;
     text-align: center;
   }
+
+  /* Register form mobile styles */
+  .register-form {
+    padding: 1.2rem;
+  }
+
+  .registration-type-selector h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .type-options {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-row {
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .member-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .member-fields {
+    gap: 1rem;
+  }
+
+  /* Mobile Responsiveness for Payment Section */
+  .qr-payment-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .qr-container {
+    padding: 1.2rem;
+    margin: 0;
+    border-radius: 16px;
+  }
+
+  .qr-container h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.2rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .qr-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .payment-details {
+    margin-top: 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .payment-info {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .amount {
+    font-size: 1rem;
+  }
+
+  .payment-upload-section {
+    padding: 1.2rem;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .payment-upload-section h4 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    margin-top: 0;
+  }
+
+  .payment-upload-section p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .payment-container {
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border-radius: 16px;
+  }
+
+  .payment-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .payment-header h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .payment-header p {
+    font-size: 0.85rem;
+  }
+
+  .upload-area {
+    margin: 1rem 0;
+  }
+
+  .upload-label {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .upload-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .upload-text p {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .upload-text small {
+    font-size: 0.75rem;
+  }
+
+  .upload-success {
+    font-size: 1.8rem;
+  }
+
+  .payment-instructions {
+    padding: 1rem;
+    margin: 1.2rem 0;
+    border-radius: 12px;
+  }
+
+  .payment-instructions h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .payment-instructions ul {
+    gap: 0.5rem;
+  }
+
+  .payment-instructions li {
+    font-size: 0.8rem;
+    padding-left: 1.4rem;
+  }
+
+  /* Extra small screens */
+  @media (max-width: 380px) {
+    .qr-code {
+      width: 160px;
+      height: 160px;
+      padding: 0.6rem;
+      margin: 0 auto 1rem;
+    }
+
+    .qr-container {
+      padding: 1rem;
+    }
+
+    .qr-container h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .payment-container {
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .upload-label {
+      padding: 1.2rem;
+    }
+
+    .payment-upload-section {
+      padding: 1rem;
+    }
+
+    .payment-instructions {
+      padding: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .upload-icon {
+      font-size: 1.8rem;
+    }
+
+    .payment-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .upload-text p {
+      font-size: 0.8rem;
+    }
+
+    .payment-instructions h5 {
+      font-size: 0.85rem;
+    }
+
+    .payment-instructions li {
+      font-size: 0.75rem;
+      padding-left: 1.2rem;
+    }
+  }
 }
 
 /* Pricing Information in Type Options */
@@ -4656,13 +5108,30 @@ body {
 .event-select {
   width: 100%;
   padding: 1.2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: rgba(10, 15, 26, 0.8);
   border: 2px solid var(--border);
   border-radius: 12px;
   color: var(--text-primary);
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  padding: 0.8rem;
+}
+
+.event-select option:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.event-select option:checked {
+  background: linear-gradient(#4DA3FF, #4DA3FF);
+  background-color: var(--primary);
+  color: #fff;
 }
 
 .event-select:hover {
