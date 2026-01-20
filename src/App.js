@@ -1244,6 +1244,8 @@ function App() {
                             <option value="2">2 Members</option>
                             <option value="3" disabled={maxRestriction && maxRestriction < 3}>3 Members{maxRestriction && maxRestriction < 3 ? ' (Not allowed)' : ''}</option>
                             <option value="4" disabled={maxRestriction && maxRestriction < 4}>4 Members{maxRestriction && maxRestriction < 4 ? ' (Not allowed)' : ''}</option>
+                            <option value="5" disabled={maxRestriction && maxRestriction < 5}>5 Members{maxRestriction && maxRestriction < 5 ? ' (Not allowed)' : ''}</option>
+                            <option value="6" disabled={maxRestriction && maxRestriction < 6}>6 Members{maxRestriction && maxRestriction < 6 ? ' (Not allowed)' : ''}</option>
                           </select>
                           {maxRestriction && parseInt(formData.teamSize) > maxRestriction && (
                             <small style={{ color: 'red' }}>⚠️ Team size exceeds the event restriction of {maxRestriction} members</small>
