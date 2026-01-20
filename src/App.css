@@ -809,10 +809,315 @@ body {
   text-transform: uppercase;
 }
 
+/* College Header Section */
+.college-header {
+  width: 100%;
+  background: linear-gradient(135deg, #0A0F1A 0%, rgba(77, 163, 255, 0.08) 50%, #0A0F1A 100%);
+  border-top: 3px solid rgba(77, 163, 255, 0.5);
+  border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+  padding: 3rem 2rem;
+  margin-top: 90px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  background-image: 
+    linear-gradient(135deg, #0A0F1A 0%, rgba(77, 163, 255, 0.08) 50%, #0A0F1A 100%),
+    radial-gradient(circle at 0% 0%, rgba(77, 163, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+}
+
+.college-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(77, 163, 255, 0.1) 25%, rgba(77, 163, 255, 0.1) 75%, transparent 100%);
+  pointer-events: none;
+}
+
+.college-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(77, 163, 255, 0.6) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.college-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.college-logo-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-glow {
+  position: absolute;
+  inset: -15px;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(77, 163, 255, 0.4) 0%, rgba(77, 163, 255, 0.1) 70%, transparent 100%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(77, 163, 255, 0.3), inset 0 0 30px rgba(77, 163, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(77, 163, 255, 0.5), inset 0 0 40px rgba(77, 163, 255, 0.2);
+  }
+}
+
+.college-logo {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 3px solid rgba(77, 163, 255, 0.7);
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(77, 163, 255, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+  box-shadow: 
+    0 0 50px rgba(77, 163, 255, 0.5),
+    0 12px 50px rgba(77, 163, 255, 0.25),
+    inset 0 0 30px rgba(77, 163, 255, 0.15),
+    0 0 0 1px rgba(77, 163, 255, 0.3);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.college-logo::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, transparent 30%, rgba(77, 163, 255, 0.15) 50%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.college-header:hover .college-logo {
+  transform: translateY(-15px) scale(1.12);
+  border-color: rgba(77, 163, 255, 0.95);
+  box-shadow: 
+    0 0 70px rgba(77, 163, 255, 0.7),
+    0 20px 60px rgba(77, 163, 255, 0.4),
+    inset 0 0 40px rgba(77, 163, 255, 0.25),
+    0 0 0 2px rgba(77, 163, 255, 0.5);
+}
+
+.college-header:hover .college-logo::before {
+  opacity: 1;
+}
+
+.college-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 700px;
+}
+
+.college-name {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  transition: all 0.5s ease;
+  text-shadow: 
+    0 2px 10px rgba(77, 163, 255, 0.3),
+    0 4px 25px rgba(0, 0, 0, 0.4);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.college-name::before {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(90deg, #4DA3FF 0%, #D4AF37 50%, #4DA3FF 100%);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.college-header:hover .college-name::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.college-location {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(212, 175, 55, 0.9);
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.college-tagline {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  letter-spacing: 0.8px;
+  margin: 0.5rem 0 0 0;
+  text-transform: uppercase;
+  word-spacing: 0.2rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, rgba(77, 163, 255, 0.6) 0%, rgba(212, 175, 55, 0.6) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.college-header:hover .college-location {
+  color: rgba(212, 175, 55, 1);
+  transform: scale(1.02);
+}
+
+.college-header:hover .college-tagline {
+  filter: brightness(1.15);
+  letter-spacing: 1.2px;
+}
+
+@media (max-width: 1024px) {
+  .college-header {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .college-header-content {
+    gap: 2.5rem;
+  }
+
+  .college-logo {
+    height: 110px;
+    width: 110px;
+  }
+
+  .college-name {
+    font-size: 1.7rem;
+  }
+
+  .college-location {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .college-header {
+    padding: 2.2rem 1.5rem;
+  }
+
+  .college-header-content {
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .college-logo {
+    height: 100px;
+    width: 100px;
+  }
+
+  .college-name {
+    font-size: 1.4rem;
+    letter-spacing: 0.6px;
+  }
+
+  .college-location {
+    font-size: 1rem;
+  }
+
+  .college-tagline {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .college-header {
+    padding: 2rem 1rem;
+  }
+
+  .college-header-content {
+    gap: 1.5rem;
+  }
+
+  .college-logo {
+    height: 90px;
+    width: 90px;
+    border: 2.5px solid rgba(77, 163, 255, 0.6);
+    padding: 6px;
+  }
+
+  .college-name {
+    font-size: 1.15rem;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+  }
+
+  .college-location {
+    font-size: 0.95rem;
+  }
+
+  .college-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .college-header {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .college-header-content {
+    gap: 1.2rem;
+  }
+
+  .college-logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .college-name {
+    font-size: 1rem;
+  }
+
+  .college-location {
+    font-size: 0.85rem;
+  }
+
+  .college-tagline {
+    font-size: 0.75rem;
+  }
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  padding: 8rem 2rem 4rem;
+  padding: 2rem 2rem 4rem;
+  margin-top: 90px;
   position: relative;
   display: flex;
   align-items: center;
@@ -884,6 +1189,40 @@ body {
   color: var(--text-secondary);
   font-weight: 600;
   letter-spacing: 1px;
+}
+
+.hero-secondary {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0.5rem;
+  display: inline-block;
+  animation: fadeInScale 0.8s ease 0.3s both;
+}
+
+.hero-data-science {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #D4AF37 0%, #FFE066 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  display: inline-block;
+  animation: fadeInScale 0.8s ease 0.5s both;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .hero-badge {

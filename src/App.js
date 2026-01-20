@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { supabase } from "./supabaseClient";
 import logoImage from "./assets/logo.jpeg";
+import cahcetLogoImage from "./assets/cahcet.jpg";
 import qrCodeImage from "./assets/qr code.jpeg"
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [verificationStatus, setVerificationStatus] = useState("pending");
   const [paymentAmount, setPaymentAmount] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [eventFilter, setEventFilter] = useState("all");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -828,6 +830,21 @@ function App() {
         </div>
       </div>
 
+      {/* College Header Section */}
+      <section className="college-header">
+        <div className="college-header-content">
+          <div className="college-logo-wrapper">
+            <img src={cahcetLogoImage} alt="College Logo" className="college-logo" />
+            <div className="logo-glow"></div>
+          </div>
+          <div className="college-info">
+            <h2 className="college-name">C. Abdul Hakeem College Of Engg. & Tech</h2>
+            <p className="college-location">Melvisharam - 632-509</p>
+            <p className="college-tagline">Enter To Learn• Leave To Serve.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Home Page */}
       {view === "home" && (
         <section className="hero">
@@ -837,6 +854,8 @@ function App() {
                 <h1 className="hero-title">
                   <span className="hero-gradient">ARTIFICIAL</span>
                   <span className="hero-main">INTELLIGENCE</span>
+                  <span className="hero-secondary">&</span>
+                  <span className="hero-data-science">DATA SCIENCE</span>
                   <span className="hero-sub">SYMPOSIUM 2026</span>
                 </h1>
                 <div className="hero-badge">
@@ -1008,17 +1027,45 @@ function App() {
 
           {/* Event Type Filter */}
           <div className="event-filters">
-            <button className="filter-btn active">All Events</button>
-            <button className="filter-btn">Technical</button>
-            <button className="filter-btn">Non-Technical</button>
-            <button className="filter-btn">Workshops</button>
+            <button 
+              className={`filter-btn ${eventFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setEventFilter('all')}
+            >
+              All Events
+            </button>
+            <button 
+              className={`filter-btn ${eventFilter === 'tech' ? 'active' : ''}`}
+              onClick={() => setEventFilter('tech')}
+            >
+              Technical
+            </button>
+            <button 
+              className={`filter-btn ${eventFilter === 'nontech' ? 'active' : ''}`}
+              onClick={() => setEventFilter('nontech')}
+            >
+              Non-Technical
+            </button>
+            <button 
+              className={`filter-btn ${eventFilter === 'workshop' ? 'active' : ''}`}
+              onClick={() => setEventFilter('workshop')}
+            >
+              Workshops
+            </button>
           </div>
 
           <div className="events-grid">
-            {events.map((event) => (
+            {events
+              .filter((event) => {
+                if (eventFilter === 'all') return true;
+                if (eventFilter === 'tech') return event.type === 'tech';
+                if (eventFilter === 'nontech') return event.type === 'nontech';
+                if (eventFilter === 'workshop') return event.type === 'workshop';
+                return true;
+              })
+              .map((event) => (
               <div key={event.id} className="event-card">
                 <div className="event-card-header">
-                  <div className="event-icon">{event.type === 'tech' ? '⚡' : '🎨'}</div>
+                  <div className="event-icon">{event.type === 'tech' ? '⚡' : event.type === 'workshop' ? '🎓' : '🎨'}</div>
                   <div className="event-badges">
                     <div className="event-time-badge">{event.time}</div>
                     <div className="event-price-badge">₹{event.soloPrice || event.price} / ₹{event.teamPrice || event.price}</div>
