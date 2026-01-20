@@ -60,6 +60,9 @@ function App() {
   // Edit states for CRUD operations - only keep events
   const [editingEvent, setEditingEvent] = useState(null);
 
+  // State for description modal
+  const [selectedEventDescription, setSelectedEventDescription] = useState(null);
+
   // Form states for adding new items - only keep events
   const [newEvent, setNewEvent] = useState({
     title: "",
@@ -221,6 +224,14 @@ function App() {
     }));
     setConfetti(pieces);
     setTimeout(() => setConfetti([]), 2600);
+  };
+
+  // Helper function to truncate description
+  const truncateDescription = (text, maxLength = 150) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength).trim() + "...";
   };
 
   const handleInputChange = (e) => {
@@ -682,6 +693,58 @@ function App() {
         </div>
       )}
 
+      {/* Event Description Modal */}
+      {selectedEventDescription && (
+        <div className="modal-overlay" onClick={() => setSelectedEventDescription(null)}>
+          <div className="description-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>{selectedEventDescription.title}</h2>
+              <button 
+                className="modal-close-btn"
+                onClick={() => setSelectedEventDescription(null)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="modal-body">
+              <div className="description-content">
+                <p>{selectedEventDescription.description}</p>
+              </div>
+              <div className="description-event-info">
+                <div className="info-item">
+                  <span className="info-label">⏰ Time:</span>
+                  <span className="info-value">{selectedEventDescription.time}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">📍 Venue:</span>
+                  <span className="info-value">{selectedEventDescription.venue}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">💰 Pricing:</span>
+                  <span className="info-value">Solo: ₹{selectedEventDescription.soloPrice || selectedEventDescription.price} | Team: ₹{selectedEventDescription.teamPrice || selectedEventDescription.price}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">👥 Capacity:</span>
+                  <span className="info-value">{selectedEventDescription.registered}/{selectedEventDescription.capacity}</span>
+                </div>
+                {selectedEventDescription.maxTeamParticipants && (
+                  <div className="info-item">
+                    <span className="info-label">👥 Max Team Size:</span>
+                    <span className="info-value">{selectedEventDescription.maxTeamParticipants}</span>
+                  </div>
+                )}
+              </div>
+              <button 
+                className="close-modal-btn"
+                onClick={() => setSelectedEventDescription(null)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Navbar */}
       <nav className="navbar">
         <div className="nav-container">
@@ -1075,7 +1138,17 @@ function App() {
                 </div>
                 <div className="event-card-body">
                   <h3>{event.title}</h3>
-                  <p>{event.description}</p>
+                  <div className="event-description-section">
+                    <p>{truncateDescription(event.description, 150)}</p>
+                    {event.description.length > 150 && (
+                      <button 
+                        className="show-description-link"
+                        onClick={() => setSelectedEventDescription(event)}
+                      >
+                        View Full Description →
+                      </button>
+                    )}
+                  </div>
                   <div className="event-meta">
                     <span className="event-venue">📍 {event.venue}</span>
                     <span className="event-capacity">👥 {event.registered}/{event.capacity}</span>
@@ -1806,6 +1879,13 @@ function App() {
                       <p>9600159063 - Mohamed Melhan K O<br />6374154994 - Abrar A <br />6374892929 - Md. Talha C</p>
                     </div>
                   </li>
+                  <li>
+                    <span className="info-icon"></span>
+                    <div>
+                      <strong>Queries</strong>
+                      <p>9600159063 - Mohamed Melhan K O (Registration Queries)</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -2197,7 +2277,17 @@ function App() {
                   <div key={event.id} className="event-item-admin">
                     <div className="event-info">
                       <h5>{event.title}</h5>
-                      <p>{event.description}</p>
+                      <div className="event-description-section">
+                        <p>{truncateDescription(event.description, 150)}</p>
+                        {event.description.length > 150 && (
+                          <button 
+                            className="show-description-link"
+                            onClick={() => setSelectedEventDescription(event)}
+                          >
+                            View Full Description →
+                          </button>
+                        )}
+                      </div>
                       <div className="event-meta">
                         <span>⏰ {event.time}</span>
                         <span>📍 {event.venue}</span>
@@ -2390,6 +2480,7 @@ function App() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">Developed By Techsalute</p>
+          <p className="footer-text">Organized By Department Of Artificial Intelligence & Data Science</p>
         </div>
       </footer>
     </div>
