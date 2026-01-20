@@ -838,7 +838,7 @@ function App() {
             <div className="logo-glow"></div>
           </div>
           <div className="college-info">
-            <h2 className="college-name">C. Abdul Hakeem College Of Engg. & Tech</h2>
+            <h2 className="college-name">C. Abdul Hakeem College Of Engineering & Technology</h2>
             <p className="college-location">Melvisharam - 632-509</p>
             <p className="college-tagline">Enter To Learn• Leave To Serve.</p>
           </div>
@@ -854,8 +854,10 @@ function App() {
                 <h1 className="hero-title">
                   <span className="hero-gradient">ARTIFICIAL</span>
                   <span className="hero-main">INTELLIGENCE</span>
-                  <span className="hero-secondary">&</span>
-                  <span className="hero-data-science">DATA SCIENCE</span>
+                  <span className="hero-line">
+                    <span className="hero-secondary">&</span>
+                    <span className="hero-data-science">DATA SCIENCE</span>
+                  </span>
                   <span className="hero-sub">SYMPOSIUM 2026</span>
                 </h1>
                 <div className="hero-badge">
