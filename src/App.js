@@ -80,7 +80,7 @@ function App() {
 
   // Static data for rules
   const staticRules = [
-    { id: 1, title: "General Rulu", description: "All Participation from Various College must wear their ID card." },
+    { id: 1, title: "General Rule", description: "All Participation from Various College must wear their ID card." },
     { id: 2, title: "Code of Conduct", description: "All participants must maintain professional decorum and respect fellow participants, judges, and organizers." },
     { id: 3, title: "Online Registration Deadline", description: "All Online Registration submissions must be completed by Feb 6. Late submissions will not be accepted." },
     { id: 4, title: "Offline Registration", description: "Offline Registration is also Avaible in the Venue Auditorium and its open till 10:30." },
@@ -92,11 +92,22 @@ function App() {
   const staticSchedule = [
     { id: 1, time: "9:30 AM", event: "Inaguration Ceremony", venue: "CAHCET Auditorium" },
     { id: 2, time: "10:30 AM", event: "Events Begins", venue: "Respective Venues" },
-    { id: 3, time: "11:00 AM", event: "AI Model Showcase Competition", venue: "Exhibition Hall" },
-    { id: 4, time: "2:00 PM", event: "Data Science Workshop Sessions", venue: "Lab 1-3" },
-    { id: 5, time: "4:30 PM", event: "ML Hackathon Begins", venue: "Innovation Center" },
-    { id: 6, time: "6:00 PM", event: "Keynote Speech: Future of AI", venue: "Auditorium" },
-    { id: 7, time: "8:00 PM", event: "Networking Dinner & Award Ceremony", venue: "Grand Ballroom" },
+    { id: 3, time: "10:30 AM", event: "Paper Presentation", venue: "Tech Tower Seminar Hall" },
+    { id: 4, time: "10:30 AM", event: "PROMPT2PAGE", venue: "Lab 8 Tech Tower" },
+    { id: 5, time: "10:30 AM", event: "Virtual Design (UI/UX)", venue: "Lab 9 Tech Tower" },
+    { id: 6, time: "10:30 AM", event: "NEURAL KNOCKOUT", venue: "AI&DS Smart Room" },
+    { id: 7, time: "10:30 AM", event: "Artistry Aura (Visual Arts) 🎨", venue: "Drawing Hall Main Block" },
+    { id: 8, time: "10:30 AM", event: "Technical Debate", venue: "EEE Seminar Hall" },
+    { id: 9, time: "10:30 AM", event: "Coding & Debugging", venue: "Lab 3 Main Block" },
+    { id: 10, time: "11:00 AM", event: "E-Sports", venue: "Auditorium" },
+    { id: 11, time: "11:00 AM", event: "Trace & Triumphs", venue: "Auditorium" },
+    { id: 12, time: "1:00 PM", event: "Bid & Build", venue: "EEE Seminar Hall" },
+    { id: 13, time: "1:00 PM", event: "Data Hackathon", venue: "Lab 8 Tech Tower" },
+    { id: 14, time: "1:00 PM", event: "Zero Google Challenge", venue: "Tech Tower Seminar Hall" },
+    { id: 15, time: "1:00 PM", event: "THINK & SYNC", venue: "MBA Seminar Hall" },
+    { id: 16, time: "1:00 PM", event: "Photography & ShortFilms", venue: "AI&DS Smart Room" },
+    { id: 17, time: "3:15 PM", event: "Closing Ceremony", venue: "Auditorium" },
+
   ];
 
   // Static data for sponsors
