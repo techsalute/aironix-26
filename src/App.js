@@ -6,7 +6,7 @@ import cahcetLogoImage from "./assets/cahcet.jpg";
 import qrCodeImage from "./assets/qr code.jpeg"
 
 function App() {
-  const eventDate = new Date("2026-02-07T00:00:00").getTime();
+  const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
   const [view, setView] = useState("home");
   const [sidebarOpen, setSidebarOpen] = useState(false);
