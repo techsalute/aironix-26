@@ -27,10 +27,10 @@ function App() {
   const [eventFilter, setEventFilter] = useState("all");
   const [news, setNews] = useState([
     { id: 1, title: "📢 Important Announcement", message: "Early bird registration ends Feb 6, 2026", type: "important", time: "2 hours ago" },
-    { id: 2, title: "🚀 New Event Added", message: "AI Ethics Panel Discussion added to schedule", type: "update", time: "5 hours ago" },
-    { id: 3, title: "✅ Registration Open", message: "Online and offline registration now available at CAHCET Campus", type: "success", time: "1 day ago" },
+    { id: 2, title: "🚀 New Event Added", message: "Events Are Added Successfully", type: "update", time: "4 hours ago" },
+    { id: 3, title: "✅ Registration Open", message: "Online Registration is Open, Register Your Slot", type: "Register", time: "1 day ago" },
     { id: 4, title: "📍 Venue Confirmed", message: "Event venue confirmed at CAHCET Campus - All facilities ready", type: "info", time: "2 days ago" },
-    { id: 5, title: "🎯 Limited Spots", message: "Only 150 spots remaining for ML Hackathon - Register now!", type: "urgent", time: "3 days ago" },
+    { id: 5, title: "🎯 Limited Spots", message: " 4 New Events is added to CAHCET Symposium", type: "update", time: "3 days ago" },
   ]);
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
 
