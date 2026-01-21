@@ -107,14 +107,15 @@ function App() {
     { id: 7, time: "10:30 AM", event: "Artistry Aura (Visual Arts) 🎨", venue: "Drawing Hall Main Block" },
     { id: 8, time: "10:30 AM", event: "Technical Debate", venue: "EEE Seminar Hall" },
     { id: 9, time: "10:30 AM", event: "Coding & Debugging", venue: "Lab 3 Main Block" },
-    { id: 10, time: "11:00 AM", event: "E-Sports", venue: "Auditorium" },
-    { id: 11, time: "11:00 AM", event: "Trace & Triumphs", venue: "Auditorium" },
-    { id: 12, time: "1:00 PM", event: "Bid & Build", venue: "EEE Seminar Hall" },
-    { id: 13, time: "1:00 PM", event: "Data Hackathon", venue: "Lab 8 Tech Tower" },
-    { id: 14, time: "1:00 PM", event: "Zero Google Challenge", venue: "Tech Tower Seminar Hall" },
-    { id: 15, time: "1:00 PM", event: "THINK & SYNC", venue: "MBA Seminar Hall" },
-    { id: 16, time: "1:00 PM", event: "Photography & ShortFilms", venue: "AI&DS Smart Room" },
-    { id: 17, time: "3:15 PM", event: "Closing Ceremony", venue: "Auditorium" },
+    { id: 10, time: "10:30 AM", event: "Cooking Without Fire", venue: "MBA Seminar Hall" },
+    { id: 11, time: "11:00 AM", event: "E-Sports", venue: "Auditorium" },
+    { id: 12, time: "11:00 AM", event: "Trace & Triumphs", venue: "Auditorium" },
+    { id: 13, time: "1:00 PM", event: "Bid & Build", venue: "EEE Seminar Hall" },
+    { id: 14, time: "1:00 PM", event: "Data Hackathon", venue: "Lab 8 Tech Tower" },
+    { id: 15, time: "1:00 PM", event: "Zero Google Challenge", venue: "Tech Tower Seminar Hall" },
+    { id: 16, time: "1:00 PM", event: "THINK & SYNC", venue: "MBA Seminar Hall" },
+    { id: 17, time: "1:00 PM", event: "Photography & ShortFilms", venue: "AI&DS Smart Room" },
+    { id: 18, time: "3:15 PM", event: "Closing Ceremony", venue: "Auditorium" },
 
   ];
 
@@ -134,6 +135,21 @@ function App() {
     { id: 3, name: "Mohamed Melhan K O", role: "General Secretory", email: "melhan922@gmail.com", phone: "9600159063" },
     { id: 4, name: "Abrar A", role: "Joint Secretory", email: "abrarrx65@gmail.com", phone: "6374154994" },
     { id: 5, name: "Md. Talha C", role: "Treasure", email: "cmdtalha23@gmail.com", phone: "6374892929" },
+    { id: 6, name: "Sadiqul Ameen", role: "Sponsorship Team", email: "aironi26@gmail.com", phone: "6383142161" },
+    { id: 7, name: "Md Mudassir S F", role: "Design Lead", email: "aironix26@gmail.com", phone: "8072124967" },
+    { id: 8, name: "Karthikeyan K", role: "Design Lead", email: "aironix26@gmail.com", phone: "8610947935" },
+    { id: 9, name: "Shalu", role: "Decoration Lead", email: "aironix26@gmail.com", },
+    { id: 10, name: "Priyadharshini R", role: "Design Team", email: "aironix26@gmail.com", },
+    { id: 11, name: "Aysha G", role: "Design Team", email: "aironix26@gmail.com", },
+    { id: 12, name: "Md Nafeed S", role: "Sponsorship Team", email: "aironix26@gmail.com", phone: "8940042035" },
+
+
+  
+
+
+
+
+
   ];
 
   // Static data for gallery
@@ -1162,7 +1178,7 @@ function App() {
               .filter((event) => {
                 if (eventFilter === 'all') return true;
                 if (eventFilter === 'tech') return event.type === 'tech';
-                if (eventFilter === 'nontech') return event.type === 'nontech';
+                if (eventFilter === 'nontech') return event.type === 'non-tech';
                 if (eventFilter === 'workshop') return event.type === 'workshop';
                 return true;
               })
