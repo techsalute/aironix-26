@@ -25,6 +25,14 @@ function App() {
   const [paymentAmount, setPaymentAmount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [eventFilter, setEventFilter] = useState("all");
+  const [news, setNews] = useState([
+    { id: 1, title: "📢 Important Announcement", message: "Early bird registration ends Feb 6, 2026", type: "important", time: "2 hours ago" },
+    { id: 2, title: "🚀 New Event Added", message: "AI Ethics Panel Discussion added to schedule", type: "update", time: "5 hours ago" },
+    { id: 3, title: "✅ Registration Open", message: "Online and offline registration now available at CAHCET Campus", type: "success", time: "1 day ago" },
+    { id: 4, title: "📍 Venue Confirmed", message: "Event venue confirmed at CAHCET Campus - All facilities ready", type: "info", time: "2 days ago" },
+    { id: 5, title: "🎯 Limited Spots", message: "Only 150 spots remaining for ML Hackathon - Register now!", type: "urgent", time: "3 days ago" },
+  ]);
+  const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -943,6 +951,26 @@ function App() {
 
             <div className="hero-subtitle">
               Where <span className="highlight">Innovation</span> Meets <span className="highlight">Intelligence</span>
+            </div>
+
+            {/* Floating News Section */}
+            <div className="floating-news-container">
+              <div className="news-ticker-header">
+                <span className="ticker-badge">📰 LIVE</span>
+                <h3>Latest Updates</h3>
+              </div>
+              
+              <div className="news-ticker">
+                <div className="ticker-content">
+                  {news.map((item) => (
+                    <div key={item.id} className={`ticker-item ticker-${item.type}`}>
+                      <span className="ticker-separator">•</span>
+                      <strong>{item.title}</strong>
+                      <span className="ticker-text">{item.message}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="countdown-container">
