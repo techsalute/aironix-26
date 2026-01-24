@@ -3,7 +3,8 @@ import "./App.css";
 import { supabase } from "./supabaseClient";
 import logoImage from "./assets/logo.jpeg";
 import cahcetLogoImage from "./assets/cahcet.jpg";
-import qrCodeImage from "./assets/qr code.jpeg"
+import qrCodeImage from "./assets/qr code.jpeg";
+import sbvLogoImage from "./assets/sbv.png";
 
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
@@ -121,11 +122,12 @@ function App() {
 
   // Static data for sponsors
   const staticSponsors = [
-    { id: 1, name: "I Constructions.", logo: "🏢", level: "Elite", url: "#" },
-    { id: 2, name: "Nadeem Beef Center", logo: "🔬", level: "Premium", url: "#" },
-    { id: 3, name: "Cloud Solutions", logo: "☁️", level: "Standard", url: "#" },
-    { id: 4, name: "Data Corp", logo: "📊", level: "Standard", url: "#" },
-    { id: 5, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", url: "#" },
+    { id: 1, name: "I Constructions.", logo: "🏢", level: "Elite", website: "https://www.iconstructions.com/" },
+    { id: 2, name: "SBV Technology", logo: sbvLogoImage, level: "Elite", website: "https://www.sbvtechnologies.com/" },
+    { id: 3, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
+    { id: 4, name: "Cloud Solutions", logo: "☁️", level: "Standard", website: "https://www.cloudsolutions.com/" },
+    { id: 5, name: "Data Corp", logo: "📊", level: "Standard", website: "https://www.datacorp.com/" },
+    { id: 6, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", website: "https://www.devtoolsco.com/" },
   ];
 
   // Static data for coordinators
@@ -1780,8 +1782,18 @@ function App() {
               <div className="sponsor-logos">
                 {staticSponsors.filter(s => s.level === "Elite").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
-                    <span className="logo-icon">{sponsor.logo}</span>
-                    <h4>{sponsor.name}</h4>
+                    {typeof sponsor.logo === 'string' && sponsor.logo.length === 2 ? (
+                      <span className="logo-icon">{sponsor.logo}</span>
+                    ) : (
+                      <img src={sponsor.logo} alt={sponsor.name} className="logo-image" />
+                    )}
+                    <h4 
+                      onClick={() => window.open(sponsor.website, '_blank')} 
+                      style={{ cursor: 'pointer' }}
+                      title={`Visit ${sponsor.name}`}
+                    >
+                      {sponsor.name}
+                    </h4>
                   </div>
                 ))}
               </div>
@@ -1792,8 +1804,18 @@ function App() {
               <div className="sponsor-logos">
                 {staticSponsors.filter(s => s.level === "Premium").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
-                    <span className="logo-icon">{sponsor.logo}</span>
-                    <h4>{sponsor.name}</h4>
+                    {typeof sponsor.logo === 'string' && sponsor.logo.length === 2 ? (
+                      <span className="logo-icon">{sponsor.logo}</span>
+                    ) : (
+                      <img src={sponsor.logo} alt={sponsor.name} className="logo-image" />
+                    )}
+                    <h4 
+                      onClick={() => window.open(sponsor.website, '_blank')} 
+                      style={{ cursor: 'pointer' }}
+                      title={`Visit ${sponsor.name}`}
+                    >
+                      {sponsor.name}
+                    </h4>
                   </div>
                 ))}
               </div>
@@ -1804,8 +1826,18 @@ function App() {
               <div className="sponsor-logos">
                 {staticSponsors.filter(s => s.level === "Standard").map(sponsor => (
                   <div key={sponsor.id} className="sponsor-logo">
-                    <span className="logo-icon">{sponsor.logo}</span>
-                    <h4>{sponsor.name}</h4>
+                    {typeof sponsor.logo === 'string' && sponsor.logo.length === 2 ? (
+                      <span className="logo-icon">{sponsor.logo}</span>
+                    ) : (
+                      <img src={sponsor.logo} alt={sponsor.name} className="logo-image" />
+                    )}
+                    <h4 
+                      onClick={() => window.open(sponsor.website, '_blank')} 
+                      style={{ cursor: 'pointer' }}
+                      title={`Visit ${sponsor.name}`}
+                    >
+                      {sponsor.name}
+                    </h4>
                   </div>
                 ))}
               </div>

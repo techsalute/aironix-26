@@ -3364,12 +3364,12 @@ body {
 }
 
 .logo-icon {
-  font-size: 3rem;
+  font-size: 5rem;
   display: block;
   margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.1);
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -3377,10 +3377,27 @@ body {
   margin: 0 auto;
 }
 
+.logo-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+}
+
 .sponsor-logo h4 {
   font-size: 1.2rem;
   color: var(--text-primary);
   margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.sponsor-logo h4:hover {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 /* Gallery */
