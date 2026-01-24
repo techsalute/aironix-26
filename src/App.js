@@ -149,6 +149,7 @@ function App() {
 
 
 
+
   
 
 
@@ -829,13 +830,15 @@ function App() {
               </li>
             </ul>
 
-            <div className="registration-count">
-              <div className="count-badge">
-                <span className="count-number">{registeredCount}</span>
-                <div className="count-glow"></div>
+            {adminLoggedIn && (
+              <div className="registration-count">
+                <div className="count-badge">
+                  <span className="count-number">{registeredCount}</span>
+                  <div className="count-glow"></div>
+                </div>
+                <span className="count-label">Registered</span>
               </div>
-              <span className="count-label">Registered</span>
-            </div>
+            )}
           </div>
         </div>
       </nav>
@@ -917,12 +920,14 @@ function App() {
         </nav>
 
         <div className="sidebar-footer">
-          <div className="sidebar-registration-count">
-            <div className="sidebar-count-badge">
-              <span className="sidebar-count-number">{registeredCount}</span>
+          {adminLoggedIn && (
+            <div className="sidebar-registration-count">
+              <div className="sidebar-count-badge">
+                <span className="sidebar-count-number">{registeredCount}</span>
+              </div>
+              <span className="sidebar-count-text">Registered</span>
             </div>
-            <span className="sidebar-count-text">Registered</span>
-          </div>
+          )}
           <p>Join the AI Revolution</p>
           <div className="social-icons">
             <a href="#" aria-label="Twitter">🐦</a>
@@ -1035,10 +1040,12 @@ function App() {
             </div>
 
             <div className="hero-stats">
-              <div className="stat">
-                <div className="stat-number">{registeredCount}+</div>
-                <div className="stat-label">Registrations</div>
-              </div>
+              {adminLoggedIn && (
+                <div className="stat">
+                  <div className="stat-number">{registeredCount}+</div>
+                  <div className="stat-label">Registrations</div>
+                </div>
+              )}
               <div className="stat">
                 <div className="stat-number">{events.length}</div>
                 <div className="stat-label">Events</div>
