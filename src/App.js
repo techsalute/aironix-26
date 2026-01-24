@@ -143,7 +143,10 @@ function App() {
     { id: 9, name: "Shalu", role: "Decoration Lead", email: "aironix26@gmail.com", },
     { id: 10, name: "Priyadharshini R", role: "Design Team", email: "aironix26@gmail.com", },
     { id: 11, name: "Aysha G", role: "Design Team", email: "aironix26@gmail.com", },
-    { id: 12, name: "Md Nafeed S", role: "Sponsorship Team", email: "aironix26@gmail.com", phone: "8940042035" },
+    { id: 12, name: "Nanthitha M", role: "Design Team", email: "aironix26@gmail.com", },
+    { id: 13, name: "Md Nafeed S", role: "Sponsorship Team", email: "aironix26@gmail.com", phone: "8940042035" },
+    { id: 14, name: "Aysha G", role: "Design Team", email: "aironix26@gmail.com", },
+
 
 
   
