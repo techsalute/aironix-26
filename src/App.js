@@ -5,6 +5,7 @@ import logoImage from "./assets/logo.jpeg";
 import cahcetLogoImage from "./assets/cahcet.jpg";
 import qrCodeImage from "./assets/qr code.jpeg";
 import sbvLogoImage from "./assets/sbv.png";
+import bashaLogoImage from "./assets/Basha snacks pani puri .png";
 
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
@@ -102,22 +103,21 @@ function App() {
     { id: 1, time: "9:30 AM", event: "Inaguration Ceremony", venue: "CAHCET Auditorium" },
     { id: 2, time: "10:30 AM", event: "Events Begins", venue: "Respective Venues" },
     { id: 3, time: "10:30 AM", event: "Paper Presentation", venue: "Tech Tower Seminar Hall" },
-    { id: 4, time: "10:30 AM", event: "PROMPT2PAGE", venue: "Lab 8 Tech Tower" },
-    { id: 5, time: "10:30 AM", event: "Virtual Design (UI/UX)", venue: "Lab 9 Tech Tower" },
-    { id: 6, time: "10:30 AM", event: "NEURAL KNOCKOUT", venue: "AI&DS Smart Room" },
-    { id: 7, time: "10:30 AM", event: "Artistry Aura (Visual Arts) 🎨", venue: "Drawing Hall Main Block" },
-    { id: 8, time: "10:30 AM", event: "Technical Debate", venue: "EEE Seminar Hall" },
-    { id: 9, time: "10:30 AM", event: "Coding & Debugging", venue: "Lab 3 Main Block" },
-    { id: 10, time: "10:30 AM", event: "Cooking Without Fire", venue: "MBA Seminar Hall" },
-    { id: 11, time: "11:00 AM", event: "E-Sports", venue: "Auditorium" },
-    { id: 12, time: "11:00 AM", event: "Trace & Triumphs", venue: "Auditorium" },
-    { id: 13, time: "1:00 PM", event: "Bid & Build", venue: "EEE Seminar Hall" },
-    { id: 14, time: "1:00 PM", event: "Data Hackathon", venue: "Lab 8 Tech Tower" },
-    { id: 15, time: "1:00 PM", event: "Zero Google Challenge", venue: "Tech Tower Seminar Hall" },
-    { id: 16, time: "1:00 PM", event: "THINK & SYNC", venue: "MBA Seminar Hall" },
-    { id: 17, time: "1:00 PM", event: "Photography & ShortFilms", venue: "AI&DS Smart Room" },
+    { id: 4, time: "10:30 AM", event: "Virtual Design (UI/UX)", venue: "Lab 9 Tech Tower" },
+    { id: 5, time: "10:30 AM", event: "NEURAL KNOCKOUT (Technical Quiz)", venue: "AI&DS Smart Room" },
+    { id: 6, time: "10:30 AM", event: " Cortex Dock (Coding & Debugging)", venue: "Lab 3 Main Block" },
+    { id: 7, time: "10:30 AM", event: "No Flame Fest(Cooking Without Fire)", venue: "Physics Lab" },
+    { id: 8, time: "11:00 AM", event: "E-Sports", venue: "Auditorium" },
+    { id: 9, time: "11:00 AM", event: "Photography & ShortFilms", venue: "Mech Seminar Hall" },
+    { id: 10, time: "11:00 AM", event: "PROMPT2PAGE", venue: "Lab 8 Tech Tower" },
+    { id: 11, time: "12:00 PM", event: "Argue It Out (Technical Debate)", venue: "Mech Seminar Hall" },
+    { id: 12, time: "1:00 PM", event: "Bid & Build (IPL Auction)", venue: "AI&DS Smart Room" },
+    { id: 13, time: "1:00 PM", event: "Data Insight Challenge (Data Hackathon)", venue: "Lab 8 Tech Tower" },
+    { id: 15, time: "1:00 PM", event: "No Net Knockout (Zero Google Challenge)", venue: "Tech Tower Seminar Hall" },
+    { id: 16, time: "1:00 PM", event: "THINK & SYNC (Connections)", venue: "EEE Seminar Hall" },
+    { id: 14, time: "1:00 PM", event: "Artistry Aura (Visual Arts & Mehndi) 🎨", venue: "Drawing Hall Main Block" },
+    { id: 17, time: "2:00 PM", event: "Trace & Triumphs (Treasure Hunt)", venue: "Auditorium" },
     { id: 18, time: "3:15 PM", event: "Closing Ceremony", venue: "Auditorium" },
-
   ];
 
   // Static data for sponsors
@@ -125,7 +125,7 @@ function App() {
     { id: 1, name: "I Constructions.", logo: "🏢", level: "Elite", website: "https://www.iconstructions.com/" },
     { id: 2, name: "SBV Technology", logo: sbvLogoImage, level: "Elite", website: "https://www.sbvtechnologies.com/" },
     { id: 3, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
-    { id: 4, name: "Cloud Solutions", logo: "☁️", level: "Standard", website: "https://www.cloudsolutions.com/" },
+    { id: 4, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
     { id: 5, name: "Data Corp", logo: "📊", level: "Standard", website: "https://www.datacorp.com/" },
     { id: 6, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", website: "https://www.devtoolsco.com/" },
   ];
