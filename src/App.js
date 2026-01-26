@@ -764,10 +764,12 @@ function App() {
                   <span className="info-label">💰 Pricing:</span>
                   <span className="info-value">Solo: ₹{selectedEventDescription.soloPrice || selectedEventDescription.price} | Team: ₹{selectedEventDescription.teamPrice || selectedEventDescription.price}</span>
                 </div>
-                <div className="info-item">
-                  <span className="info-label">👥 Capacity:</span>
-                  <span className="info-value">{selectedEventDescription.registered}/{selectedEventDescription.capacity}</span>
-                </div>
+                {adminLoggedIn && (
+                  <div className="info-item">
+                    <span className="info-label">👥 Capacity:</span>
+                    <span className="info-value">{selectedEventDescription.registered}/{selectedEventDescription.capacity}</span>
+                  </div>
+                )}
                 {selectedEventDescription.maxTeamParticipants && (
                   <div className="info-item">
                     <span className="info-label">👥 Max Team Size:</span>
@@ -1157,6 +1159,23 @@ function App() {
             <p className="section-subtitle">Join cutting-edge AI challenges</p>
           </div>
 
+          {/* Notice Board Section */}
+          <div className="notice-board">
+            <div className="notice-board-header">
+              <span className="notice-icon">📌</span>
+              <h3 className="notice-title">Important Notice</h3>
+            </div>
+            <div className="notice-board-content">
+              <ul className="notice-list">
+                <li><strong>Early Bird Registration:</strong> Register before Feb 6, 2026 to avail special rates</li>
+                <li><strong>Team or Solo Participation:</strong> For some events, the registration fee is the same for both solo and team participation, as the event allows either solo or team entry. Please check the event heading to know whether the event is meant for solo participants or teams.</li>
+                <li><strong>Team & Solo Participation:</strong> If you do not see any heading such as “Solo Event” or “Team Event,” it means the event is open to both solo and team participation. You can check the event description for more details.</li>
+                <li><strong>Venue Confirmation:</strong> All events will be held at CAHCET Campus on Feb 7, 2026</li>
+                <li><strong>Email Verification:</strong> A confirmation email will be sent to your registered email address</li>
+              </ul>
+            </div>
+          </div>
+
           {/* Event Type Filter */}
           <div className="event-filters">
             <button 
@@ -1218,7 +1237,9 @@ function App() {
                   </div>
                   <div className="event-meta">
                     <span className="event-venue">📍 {event.venue}</span>
-                    <span className="event-capacity">👥 {event.registered}/{event.capacity}</span>
+                    {adminLoggedIn && (
+                      <span className="event-capacity">👥 {event.registered}/{event.capacity}</span>
+                    )}
                     {event.maxTeamParticipants && (
                       <span className="event-team-member">👥 Max Team Size: {event.maxTeamParticipants}</span>
                     )}
@@ -1226,9 +1247,11 @@ function App() {
                       <span className="event-team-restriction">🔒 Team Max: {event.maxTeamMembersRestricted} members</span>
                     )}
                   </div>
-                  <div className="progress-bar">
-                    <div className="progress-fill" style={{ width: `${(event.registered / event.capacity) * 100}%` }}></div>
-                  </div>
+                  {adminLoggedIn && (
+                    <div className="progress-bar">
+                      <div className="progress-fill" style={{ width: `${(event.registered / event.capacity) * 100}%` }}></div>
+                    </div>
+                  )}
                   <div className="event-pricing-info">
                     <small>Solo: ₹{event.soloPrice || event.price} | Team: ₹{event.teamPrice || event.price}</small>
                   </div>
