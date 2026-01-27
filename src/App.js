@@ -6,7 +6,23 @@ import cahcetLogoImage from "./assets/cahcet.jpg";
 import qrCodeImage from "./assets/qr code.jpeg";
 import sbvLogoImage from "./assets/sbv.png";
 import bashaLogoImage from "./assets/Basha snacks pani puri .png";
-
+import paintLogoImage from "./assets/paints.jpeg";
+import iconstructionsLogoImage from "./assets/i construction .jpg.jpeg";
+import pptLogoImage from "./assets/ppt.jpeg";
+import artsLogoImage from "./assets/arts.jpeg";
+import cdLogoImage from "./assets/cd.jpeg";
+import connLogoImage from "./assets/conn.jpeg";
+import cwfLogoImage from "./assets/cwf.jpeg";
+import dicLogoImage from "./assets/dic.jpeg";
+import ffLogoImage from "./assets/ff.jpeg";
+import iplLogoImage from "./assets/ipl.jpeg";
+import phoLogoImage from "./assets/pho.jpeg";
+import tdLogoImage from "./assets/td.jpeg";
+import thLogoImage from "./assets/th.jpeg";
+import tqLogoImage from "./assets/tq.jpeg";
+import uxLogoImage from "./assets/ux.jpeg";
+import vcLogoImage from "./assets/vc.jpeg";
+import zgcLogoImage from "./assets/zgc.jpeg";
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
@@ -27,6 +43,8 @@ function App() {
   const [paymentAmount, setPaymentAmount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [eventFilter, setEventFilter] = useState("all");
+  const [selectedEventRule, setSelectedEventRule] = useState(null);
+  const [selectedImageModal, setSelectedImageModal] = useState(null);
   const [news, setNews] = useState([
     { id: 1, title: "📢 Important Announcement", message: "Early bird registration ends Feb 6, 2026", type: "important", time: "2 hours ago" },
     { id: 2, title: "🚀 New Event Added", message: "Events Are Added Successfully", type: "update", time: "4 hours ago" },
@@ -90,12 +108,196 @@ function App() {
 
   // Static data for rules
   const staticRules = [
-    { id: 1, title: "General Rule", description: "All Participation from Various College must wear their ID card." },
-    { id: 2, title: "Code of Conduct", description: "All participants must maintain professional decorum and respect fellow participants, judges, and organizers." },
-    { id: 3, title: "Online Registration Deadline", description: "All Online Registration submissions must be completed by Feb 6. Late submissions will not be accepted." },
-    { id: 4, title: "Offline Registration", description: "Offline Registration is also Avaible in the Venue Auditorium and its open till 10:30." },
-    { id: 5, title: "Be on Time", description: "After the Completion of the Inaguration Cermony please be move to the respected Events Venue inside the campus." },
-    { id: 6, title: "Resources", description: "For Events Lab are alloted but for some events you need to take your personal laptop." },
+    { id: 1, title: "General Rule", description: "All Participation from Various College must wear their ID card.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+    { id: 2, title: "Code of Conduct", description: "All participants must maintain professional decorum and respect fellow participants, judges, and organizers.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+    { id: 3, title: "Online Registration Deadline", description: "All Online Registration submissions must be completed by Feb 6. Late submissions will not be accepted.", image: "https://images.unsplash.com/photo-1611632736597-de2d4265fba3?w=400&h=300&fit=crop" },
+    { id: 4, title: "Offline Registration", description: "Offline Registration is also Avaible in the Venue Auditorium and its open till 10:30.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+    { id: 5, title: "Be on Time", description: "After the Completion of the Inaguration Cermony please be move to the respected Events Venue inside the campus.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+    { id: 6, title: "Resources", description: "For Events Lab are alloted but for some events you need to take your personal laptop.", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop" },
+  ];
+
+  // Static data for event-specific rules
+  const staticEventRules = [
+    {
+      eventName: "Paper Presentation",
+      eventType: "tech",
+      icon: "📄",
+      image: pptLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "File Format" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Content" },
+      ]
+    },
+    {
+      eventName: "Virtual Design (UI/UX)",
+      eventType: "tech",
+      icon: "🎨",
+      image: uxLogoImage,
+      rules: [
+        { id: 1, rule: "Tool Usage" },
+        { id: 2, rule: "Design Time" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Design Criteria" },
+      ]
+    },
+    {
+      eventName: "NEURAL KNOCKOUT (Technical Quiz)",
+      eventType: "tech",
+      icon: "🧠",
+      image: tqLogoImage,
+      rules: [
+        { id: 1, rule: "Solo Event" },
+        { id: 2, rule: "Duration" },
+        { id: 3, rule: "Negative Marking" },
+        { id: 4, rule: "Device" },
+      ]
+    },
+    {
+      eventName: "Cortex Dock (Coding & Debugging)",
+      eventType: "tech",
+      icon: "💻",
+      image: cdLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "Languages" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "No Resources" },
+      ]
+    },
+    {
+      eventName: "No Flame Fest (Cooking Without Fire)",
+      eventType: "non-tech",
+      icon: "🍲",
+      image: cwfLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "No Cooking" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Ingredients" },
+      ]
+    },
+    {
+      eventName: "E-Sports",
+      eventType: "non-tech",
+      icon: "🎮",
+      image: ffLogoImage,
+      rules: [
+        { id: 1, rule: "Game" },
+        { id: 2, rule: "Team Size" },
+        { id: 3, rule: "Fair Play" },
+        { id: 4, rule: "Registration" },
+      ]
+    },
+    {
+      eventName: "Photography & ShortFilms",
+      eventType: "non-tech",
+      icon: "📹",
+      image: phoLogoImage,
+      rules: [
+        { id: 1, rule: "Format" },
+        { id: 2, rule: "Duration" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Theme" },
+      ]
+    },
+    {
+      eventName: "PROMPT2PAGE",
+      eventType: "tech",
+      icon: "✍️",
+      image: vcLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "Technologies" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Responsiveness" },
+      ]
+    },
+    {
+      eventName: "Argue It Out (Technical Debate)",
+      eventType: "tech",
+      icon: "🗣️",
+      image: tdLogoImage,
+      rules: [
+        { id: 1, rule: "Team Size" },
+        { id: 2, rule: "Duration" },
+        { id: 3, rule: "Topic" },
+        { id: 4, rule: "Language" },
+      ]
+    },
+    {
+      eventName: "Bid & Build (IPL Auction)",
+      eventType: "non-tech",
+      icon: "💰",
+      image: iplLogoImage,
+      rules: [
+        { id: 1, rule: "Team Size" },
+        { id: 2, rule: "Budget" },
+        { id: 3, rule: "Strategy" },
+        { id: 4, rule: "Duration" },
+      ]
+    },
+    {
+      eventName: "Data Insight Challenge (Data Hackathon)",
+      eventType: "tech",
+      icon: "📊",
+      image: dicLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "Tools" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Dataset" },
+      ]
+    },
+    {
+      eventName: "No Net Knockout (Zero Google Challenge)",
+      eventType: "tech",
+      icon: "🚫",
+      image: zgcLogoImage,
+      rules: [
+        { id: 1, rule: "No Internet" },
+        { id: 2, rule: "Time Limit" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Fair Play" },
+      ]
+    },
+    {
+      eventName: "THINK & SYNC (Connections)",
+      eventType: "non-tech",
+      icon: "🧩",
+      image: connLogoImage,
+      rules: [
+        { id: 1, rule: "Team Size" },
+        { id: 2, rule: "Puzzle Type" },
+        { id: 3, rule: "Duration" },
+        { id: 4, rule: "No Devices" },
+      ]
+    },
+    {
+      eventName: "Artistry Aura (Visual Arts & Mehndi)",
+      eventType: "non-tech",
+      icon: "🎭",
+      image: artsLogoImage,
+      rules: [
+        { id: 1, rule: "Time Limit" },
+        { id: 2, rule: "Materials" },
+        { id: 3, rule: "Team Size" },
+        { id: 4, rule: "Theme" },
+      ]
+    },
+    {
+      eventName: "Trace & Triumphs (Treasure Hunt)",
+      eventType: "non-tech",
+      icon: "🏆",
+      image: thLogoImage,
+      rules: [
+        { id: 1, rule: "Team Size" },
+        { id: 2, rule: "Duration" },
+        { id: 3, rule: "Fair Play" },
+        { id: 4, rule: "Safety" },
+      ]
+    },
   ];
 
   // Static data for schedule
@@ -122,12 +324,13 @@ function App() {
 
   // Static data for sponsors
   const staticSponsors = [
-    { id: 1, name: "I Constructions.", logo: "🏢", level: "Elite", website: "https://www.iconstructions.com/" },
+    { id: 1, name: "I Constructions.", logo: iconstructionsLogoImage, level: "Elite", website: "www.facebook.com/iconstruction100" },
     { id: 2, name: "SBV Technology", logo: sbvLogoImage, level: "Elite", website: "https://www.sbvtechnologies.com/" },
-    { id: 3, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
-    { id: 4, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
-    { id: 5, name: "Data Corp", logo: "📊", level: "Standard", website: "https://www.datacorp.com/" },
-    { id: 6, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", website: "https://www.devtoolsco.com/" },
+    { id: 3, name: "Old Duo Paints & Hardware", logo: paintLogoImage, level: "Elite", website: "" },
+    { id: 4, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
+    { id: 5, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
+    { id: 6, name: "Data Corp", logo: "📊", level: "Standard", website: "https://www.datacorp.com/" },
+    { id: 7, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", website: "https://www.devtoolsco.com/" },
   ];
 
   // Static data for coordinators
@@ -1084,6 +1287,66 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {/* Event-Specific Rules Section */}
+            <div className="event-rules-section">
+              <h3>🎯 Event-Specific Rules</h3>
+              <p className="event-rules-subtitle">Rules and requirements for each event</p>
+              
+              <div className="event-rules-filters">
+                <button 
+                  className={`event-rule-filter-btn ${!selectedEventRule ? 'active' : ''}`}
+                  onClick={() => setSelectedEventRule(null)}
+                >
+                  All Events
+                </button>
+                {staticEventRules.map(eventRule => (
+                  <button
+                    key={eventRule.eventName}
+                    className={`event-rule-filter-btn ${selectedEventRule === eventRule.eventName ? 'active' : ''}`}
+                    onClick={() => setSelectedEventRule(eventRule.eventName)}
+                  >
+                    {eventRule.icon} {eventRule.eventName}
+                  </button>
+                ))}
+              </div>
+
+              <div className="event-rules-grid">
+                {staticEventRules
+                  .filter(eventRule => !selectedEventRule || eventRule.eventName === selectedEventRule)
+                  .map((eventRule) => (
+                  <div key={eventRule.eventName} className="event-rule-card">
+                    <div className="event-rule-header">
+                      <div className="event-rule-icon-large">{eventRule.icon}</div>
+                      <div className="event-rule-title-section">
+                        <h4>{eventRule.eventName}</h4>
+                        <span className={`event-type-badge ${eventRule.eventType}`}>
+                          {eventRule.eventType === 'tech' ? '⚡ Technical' : '🎨 Non-Technical'}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="event-rule-image-container" onClick={() => setSelectedImageModal(eventRule.image)}>
+                      <img src={eventRule.image} alt={eventRule.eventName} className="event-rule-image" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Image Modal */}
+            {selectedImageModal && (
+              <div className="image-modal-overlay" onClick={() => setSelectedImageModal(null)}>
+                <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+                  <button className="image-modal-close" onClick={() => setSelectedImageModal(null)}>
+                    <span>✕</span>
+                  </button>
+                  <img src={selectedImageModal} alt="Full view" className="image-modal-image" />
+                  <button className="image-modal-close-btn" onClick={() => setSelectedImageModal(null)}>
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="hero-visual">
