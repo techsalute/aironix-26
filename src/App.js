@@ -23,6 +23,9 @@ import tqLogoImage from "./assets/tq.jpeg";
 import uxLogoImage from "./assets/ux.jpeg";
 import vcLogoImage from "./assets/vc.jpeg";
 import zgcLogoImage from "./assets/zgc.jpeg";
+import anbuLogoImage from "./assets/anbu.jpeg";
+import sbiLogoImage from "./assets/sbi.jpeg";
+import deepikhaLogoImage from "./assets/deepikha.jpeg";
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
@@ -329,26 +332,17 @@ function App() {
     { id: 3, name: "Old Duo Paints & Hardware", logo: paintLogoImage, level: "Elite", website: "" },
     { id: 4, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
     { id: 5, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
-    { id: 6, name: "Data Corp", logo: "📊", level: "Standard", website: "https://www.datacorp.com/" },
-    { id: 7, name: "Dev Tools Co.", logo: "🛠️", level: "Standard", website: "https://www.devtoolsco.com/" },
+    { id: 6, name: "SBI", logo: sbiLogoImage, level: "Premium", website: "" },
+    { id: 7, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
+    { id: 8, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
+
   ];
 
   // Static data for coordinators
   const staticCoordinators = [
     { id: 1, name: "Mr. T S Karthick", role: "HOD/AI&DS", email: "aironix26@gmail.com", phone: "9894746047" },
     { id: 2, name: "MRs. Saranya R", role: "Symposium Coordinator", email: "aironix26@gmail.com", phone: "8220387634" },
-    { id: 3, name: "Mohamed Melhan K O", role: "General Secretory", email: "melhan922@gmail.com", phone: "9600159063" },
-    { id: 4, name: "Abrar A", role: "Joint Secretory", email: "abrarrx65@gmail.com", phone: "6374154994" },
-    { id: 5, name: "Md. Talha C", role: "Treasure", email: "cmdtalha23@gmail.com", phone: "6374892929" },
-    { id: 6, name: "Sadiqul Ameen", role: "Sponsorship Team", email: "aironi26@gmail.com", phone: "6383142161" },
-    { id: 7, name: "Md Mudassir S F", role: "Design Lead", email: "aironix26@gmail.com", phone: "8072124967" },
-    { id: 8, name: "Karthikeyan K", role: "Design Lead", email: "aironix26@gmail.com", phone: "8610947935" },
-    { id: 9, name: "Shalu", role: "Decoration Lead", email: "aironix26@gmail.com", },
-    { id: 10, name: "Priyadharshini R", role: "Design Team", email: "aironix26@gmail.com", },
-    { id: 11, name: "Aysha G", role: "Design Team", email: "aironix26@gmail.com", },
-    { id: 12, name: "Nanthitha M", role: "Design Team", email: "aironix26@gmail.com", },
-    { id: 13, name: "Md Nafeed S", role: "Sponsorship Team", email: "aironix26@gmail.com", phone: "8940042035" },
-    { id: 14, name: "Aysha G", role: "Design Team", email: "aironix26@gmail.com", },
+    
 
 
 
