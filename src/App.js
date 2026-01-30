@@ -26,6 +26,8 @@ import zgcLogoImage from "./assets/zgc.jpeg";
 import anbuLogoImage from "./assets/anbu.jpeg";
 import sbiLogoImage from "./assets/sbi.jpeg";
 import deepikhaLogoImage from "./assets/deepikha.jpeg";
+import nbcLogoImage from "./assets/nbc.jpeg";
+import naurasLogoImage from "./assets/nauras.png";
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
@@ -330,11 +332,13 @@ function App() {
     { id: 1, name: "I Constructions.", logo: iconstructionsLogoImage, level: "Elite", website: "www.facebook.com/iconstruction100" },
     { id: 2, name: "SBV Technology", logo: sbvLogoImage, level: "Elite", website: "https://www.sbvtechnologies.com/" },
     { id: 3, name: "Old Duo Paints & Hardware", logo: paintLogoImage, level: "Elite", website: "" },
-    { id: 4, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
-    { id: 5, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
-    { id: 6, name: "SBI", logo: sbiLogoImage, level: "Premium", website: "" },
-    { id: 7, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
-    { id: 8, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
+    { id: 4, name: "Nadeem Beef Center", logo: nbcLogoImage, level: "Premium", website: "" },    
+    { id: 5, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
+    { id: 6, name: "Nauras Enterprise", logo: naurasLogoImage, level: "Premium", website: "" },
+    { id: 7, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
+    { id: 8, name: "SBI", logo: sbiLogoImage, level: "Premium", website: "" },
+    { id: 9, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
+    { id: 10, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
 
   ];
 
@@ -342,17 +346,6 @@ function App() {
   const staticCoordinators = [
     { id: 1, name: "Mr. T S Karthick", role: "HOD/AI&DS", email: "aironix26@gmail.com", phone: "9894746047" },
     { id: 2, name: "MRs. Saranya R", role: "Symposium Coordinator", email: "aironix26@gmail.com", phone: "8220387634" },
-    
-
-
-
-
-  
-
-
-
-
-
   ];
 
   // Static data for gallery
