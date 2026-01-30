@@ -2056,7 +2056,7 @@ function App() {
         <section className="page-section sponsors-section">
           <div className="section-header">
             <h2 className="section-title">Our Sponsors</h2>
-            <p className="section-subtitle">Partners in innovation</p>
+            <p className="section-subtitle">“We extend our sincere appreciation to our sponsors whose dedication and support empower our work and strengthen our community.”</p>
           </div>
 
           <div className="sponsors-container">
