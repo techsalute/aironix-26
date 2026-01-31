@@ -28,6 +28,9 @@ import sbiLogoImage from "./assets/sbi.jpeg";
 import deepikhaLogoImage from "./assets/deepikha.jpeg";
 import nbcLogoImage from "./assets/nbc.jpeg";
 import naurasLogoImage from "./assets/nauras.png";
+import dcadd1LogoImage from "./assets/dcadd1.jpeg";
+import dcadd2LogoImage from "./assets/dcadd2.jpeg";
+import nsbLogoImage from "./assets/nsb.jpeg";
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
@@ -331,14 +334,18 @@ function App() {
   const staticSponsors = [
     { id: 1, name: "I Constructions.", logo: iconstructionsLogoImage, level: "Elite", website: "www.facebook.com/iconstruction100" },
     { id: 2, name: "SBV Technology", logo: sbvLogoImage, level: "Elite", website: "https://www.sbvtechnologies.com/" },
-    { id: 3, name: "Old Duo Paints & Hardware", logo: paintLogoImage, level: "Elite", website: "" },
-    { id: 4, name: "Nadeem Beef Center", logo: nbcLogoImage, level: "Premium", website: "" },    
-    { id: 5, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
-    { id: 6, name: "Nauras Enterprise", logo: naurasLogoImage, level: "Premium", website: "" },
-    { id: 7, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
-    { id: 8, name: "SBI", logo: sbiLogoImage, level: "Premium", website: "" },
-    { id: 9, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
-    { id: 10, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
+    { id: 3, name: "Old Duco Paints & Hardwares", logo: paintLogoImage, level: "Elite", website: "" },
+    { id: 4, name: "Diagonal CADD", logo: dcadd1LogoImage, level: "Elite", website: "https://gcadd.in/" },
+    { id: 5, name: "G-Academy", logo: dcadd2LogoImage, level: "Elite", website: "https://gcadd.in/" },
+
+    { id: 6, name: "Nadeem Beef Center", logo: nbcLogoImage, level: "Premium", website: "" },    
+    { id: 7, name: "All Star Real Estate & Builders", logo: "🏢", level: "Premium", website: "https://allstarproperty.in/" },
+    { id: 8, name: "Nawras Enterprises", logo: naurasLogoImage, level: "Premium", website: "" },
+    { id: 9, name: "Basha Snacks Pani Puri", logo: bashaLogoImage, level: "Premium", website: "" },
+    { id: 10, name: "SBI", logo: sbiLogoImage, level: "Premium", website: "" },
+    { id: 11, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
+    { id: 12, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
+    { id: 13, name: "NSB", logo: nsbLogoImage, level: "Standard", website: "" },
 
   ];
 
