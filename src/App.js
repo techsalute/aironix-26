@@ -5,7 +5,7 @@ import logoImage from "./assets/logo.jpeg";
 import cahcetLogoImage from "./assets/cahcet.jpg";
 import qrCodeImage from "./assets/qr code.jpeg";
 import sbvLogoImage from "./assets/sbv.png";
-import bashaLogoImage from "./assets/Basha snacks pani puri .png";
+import bashaLogoImage from "./assets/basha snacks pani puri.jpeg";
 import paintLogoImage from "./assets/paints.jpeg";
 import iconstructionsLogoImage from "./assets/i construction .jpg.jpeg";
 import pptLogoImage from "./assets/ppt.jpeg";
@@ -75,6 +75,8 @@ function App() {
     paymentScreenshot: "",
     registrationDate: new Date().toISOString()
   });
+
+  const [showNewsAlert, setShowNewsAlert] = useState(true);
 
   // Only keep dynamic data states for events
   const [events, setEvents] = useState([]);
@@ -389,8 +391,14 @@ function App() {
       setAdminLoggedIn(true);
     }
 
+    // Always show news alert on page load (no persistence)
+
     return () => clearInterval(interval);
   }, []);
+
+  const closeNewsAlert = () => {
+    setShowNewsAlert(false);
+  };
 
   // Fetch data when admin logs in
   useEffect(() => {
@@ -1156,6 +1164,23 @@ function App() {
       {view === "home" && (
         <section className="hero">
           <div className="hero-content">
+            {showNewsAlert && (
+              <div className="news-alert-overlay" onClick={closeNewsAlert}>
+                <div className="news-alert-modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+                  <div className="news-alert-header">
+                    <div className="news-alert-icon">🎉</div>
+                    <h3 className="news-alert-title">Special Announcement</h3>
+                    <button className="news-alert-x" onClick={closeNewsAlert} aria-label="Close">×</button>
+                  </div>
+                  <div className="news-alert-body">
+                    <p>A special memento will be awarded to the college, other than CAHCET, with the maximum participation in AIRONIX.</p>
+                  </div>
+                  <div className="news-alert-actions">
+                    <button className="news-alert-close" onClick={closeNewsAlert}>Got it</button>
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="hero-title-container">
               <div className="hero-title-wrapper">
                 <h1 className="hero-title">
