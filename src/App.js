@@ -31,6 +31,7 @@ import naurasLogoImage from "./assets/nauras.png";
 import dcadd1LogoImage from "./assets/dcadd1.jpeg";
 import dcadd2LogoImage from "./assets/dcadd2.jpeg";
 import nsbLogoImage from "./assets/nsb.jpeg";
+import strydoLogoImage from "./assets/strydo.png";
 function App() {
   const eventDate = new Date("2026-02-07T09:00:00").getTime();
   const [time, setTime] = useState({});
@@ -348,6 +349,7 @@ function App() {
     { id: 11, name: "Anbu Home Appliances", logo: anbuLogoImage, level: "Standard", website: "" },
     { id: 12, name: "Deepika's Beauty Parlour", logo: deepikhaLogoImage, level: "Standard", website: "https://www.devtoolsco.com/" },
     { id: 13, name: "NSB", logo: nsbLogoImage, level: "Standard", website: "" },
+    { id: 14, name: "Strydo Technologies", logo: strydoLogoImage, level: "Standard", website: "" },
 
   ];
 
