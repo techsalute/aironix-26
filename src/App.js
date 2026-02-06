@@ -398,6 +398,9 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Urgent flag when exactly one day left
+  const isUrgent = typeof time.days === 'number' && time.days === 1;
+
   const closeNewsAlert = () => {
     setShowNewsAlert(false);
   };
@@ -1225,7 +1228,12 @@ function App() {
               </div>
             </div>
 
-            <div className="countdown-container">
+            <div className={`countdown-container ${isUrgent ? 'urgent' : ''}`}>
+              {isUrgent && (
+                <div className="urgent-alert" role="alert" aria-live="assertive">
+                  ⛔ Only 1 day left — Register Immediately!
+                </div>
+              )}
               <div className="countdown">
                 <div className="countdown-item">
                   <div className="countdown-number">{time.days}</div>

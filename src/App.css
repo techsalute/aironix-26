@@ -1959,6 +1959,35 @@ h1, h2, h3, h4, h5, h6, .hero-title, .badge-text {
   box-shadow: 0 0 30px rgba(77, 163, 255, 0.6), inset 0 0 20px rgba(77, 163, 255, 0.15);
 }
 
+/* Urgent styling when one day remains */
+.countdown-container.urgent .countdown {
+  background: linear-gradient(90deg, rgba(239,68,68,0.12) 0%, rgba(239,68,68,0.06) 100%);
+  transition: all 0.25s ease;
+}
+
+.countdown-container.urgent .countdown-item {
+  border-color: rgba(239,68,68,0.6);
+  box-shadow: 0 8px 30px rgba(239,68,68,0.14), inset 0 0 12px rgba(239,68,68,0.06);
+}
+
+.urgent-alert {
+  background: #EF4444;
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.8rem 0;
+  box-shadow: 0 8px 30px rgba(239,68,68,0.18);
+  animation: pulseUrgent 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseUrgent {
+  0% { transform: translateY(0); box-shadow: 0 8px 20px rgba(239,68,68,0.12); }
+  50% { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(239,68,68,0.18); }
+  100% { transform: translateY(0); box-shadow: 0 8px 20px rgba(239,68,68,0.12); }
+}
+
 .countdown-number {
   font-family: 'Orbitron', monospace;
   font-size: 2.5rem;
@@ -6543,6 +6572,10 @@ h1, h2, h3, h4, h5, h6, .hero-title, .badge-text {
     padding: 1.2rem 0.8rem;
     border-radius: 20px;
     background: linear-gradient(135deg, rgba(77, 163, 255, 0.12) 0%, rgba(212, 175, 55, 0.08) 100%);
+  }
+
+  .countdown-container.urgent .countdown {
+    background: linear-gradient(90deg, rgba(239,68,68,0.12) 0%, rgba(239,68,68,0.06) 100%);
   }
 
   .countdown-item {
